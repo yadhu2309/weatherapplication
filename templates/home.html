@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather app</title>
+    </head>
+    <body>
+        <style>
+            *{
+                margin:0;
+                font-family:'Courier New', Courier, monospace;
+            }
+            .main{
+                text-align: center;
+            }
+            input[type='text']{
+                margin-top:20px;
+                width:30%;
+                padding:10px;
+                border: 2px solid black;
+            }
+            input[type='submit']{
+                margin-top:10px;
+                width:30%;
+                padding: 10px;
+                cursor: pointer;
+                background-color: black;
+                color:white;
+            }
+        </style>
+        <div class="main">
+            <h2>Find Weather</h2>
+        <form method="GET">
+            <input type="text" value="{{request.GET.city}}" name="city" placeholder="city...">
+            <br/>
+            <input type="submit" value="Submit">
+        </form>
+  
+        {% if weather %}
+        <h3>{{weather.region}}</h3>
+        <h3>{{weather.temp}}</h3>
+        <h3>{{weather.dayhour}}</h3>
+        {% endif %}
+    </div>
+    </body>
+</html>
